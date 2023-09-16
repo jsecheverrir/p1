@@ -4,3 +4,38 @@ b. Esquema donde describa las tareas que usted definió en el desarrollo de los 
 c. Algoritmos implementados.
 d. Problemas de desarrollo que afrontó.
 e. Evolución de la solución y consideraciones a tener en cuenta en la implementación.
+
+
+Análisis del problema:
+a)
+Los negocios necesitan cosas llamativas para atraer atencion de potenciales clientes, cosas que puedan hacer que sean recordados facilmente y genere sensaciones buenas para que los cientes decidan volver a dicho local, aquí entonces entra lo que conocemos como señales LED, que son basicamente matrices LED que por medio de la programación crean un patron memorable. 
+Para solucionar este problema debemos primero montar la matriz led, seguir con codigo para que se pueda verificar que dichos LEDS de la matriz funcionen correctamente, luego, hacer que la matriz muestre un total de 4 patrones diferentes para que el usuario pueda decidir cual desea usar, permitir hacer pruebas de tiempo de encendido y apagado de LEDSy por ultimo imagen de prueba de cada patron. 
+
+b)
+1. entender los requisitos
+2. configurar entorno de desarrollo (GitHub, TINKERCAD)
+3. Crear la matriz de LEDS, cnfigurar la matriz de LEDs en TINKERCAD con 8 filas y 8 columnas y familiarizarce con la forma en la que se pueden controlar los leds en una simulacion 
+4. Diseñar la Estructura del Código:
+Decide cómo estructurar tu programa en C++.
+Identifica las funciones que serán necesarias para cumplir con los requisitos. (mencionadas en la guia)
+Primero se diseñara la funcion de verificaion, que encienda y apague todos los LEDs de la matriz en un patrón definido y permite al usuario controlar el tiempo entre encendido y apagado, así como el número de secuencias
+Luego seguiremos con la funcion mostrar imagen, que permite al usuario visualizar los patrones que puede elegir 
+vamos con la implementacion de la logica para mostrar el patron en la matriz 
+Ahora sigue la funcion "publik" que permita al usuario seleccionar entre varias opciones: a. Verificar funcionamiento de LEDs. b. Mostrar imagen de prueba con control de tiempo. c. Mostrar patrones alternados con control de tiempo.
+5. Procedemos a implementar la comunicaion serial para que el usuario pueda enviar comandos desde un puerto serial 
+6. Por ultimo pasamos a pruebas y depuracion del programa general, siempre sujeto a cambios 
+
+c)
+
+d) Consideramos que el mayor problema a la hora de desarrollar este programa es el uso de arduino y establecer una relacion directa entre codigo en lenguaje c++ y una matriz de LEDs. 
+Aunque el mayor reto del parcial sera armar los circuitos y lograr que estos funcionen correctamente para los patrones solicitados 
+
+
+e) Tener siempre presentes las restricciones y recomendaciones dadas en el enunciado del parcial, de forma que no se haga nada indebido y se pueda llegar a una solucion de forma integral, tambien tener en cuenta la eficiencia del codigo para el funcionamiento de la matriz de LEDs
+
+
+
+
+
+
+
