@@ -1,0 +1,6 @@
+1. Genere un informe en donde se detalle el desarrollo del proyecto, explique entre otras cosas:
+a. Análisis del problema y consideraciones para la alternativa de solución propuesta.
+b. Esquema donde describa las tareas que usted definió en el desarrollo de los algoritmos.
+c. Algoritmos implementados.
+d. Problemas de desarrollo que afrontó.
+e. Evolución de la solución y consideraciones a tener en cuenta en la implementación.
