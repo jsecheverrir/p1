@@ -1,3 +1,7 @@
+Juana Echeverri Rojas
+Braulio Armando Chavisnan Ceballos
+
+
 1. Genere un informe en donde se detalle el desarrollo del proyecto, explique entre otras cosas:
 a. Análisis del problema y consideraciones para la alternativa de solución propuesta.
 b. Esquema donde describa las tareas que usted definió en el desarrollo de los algoritmos.
@@ -8,34 +12,50 @@ e. Evolución de la solución y consideraciones a tener en cuenta en la implemen
 
 Análisis del problema:
 a)
-Los negocios necesitan cosas llamativas para atraer atencion de potenciales clientes, cosas que puedan hacer que sean recordados facilmente y genere sensaciones buenas para que los cientes decidan volver a dicho local, aquí entonces entra lo que conocemos como señales LED, que son basicamente matrices LED que por medio de la programación crean un patron memorable. 
-Para solucionar este problema debemos primero montar la matriz led, seguir con codigo para que se pueda verificar que dichos LEDS de la matriz funcionen correctamente, luego, hacer que la matriz muestre un total de 4 patrones diferentes para que el usuario pueda decidir cual desea usar, permitir hacer pruebas de tiempo de encendido y apagado de LEDSy por ultimo imagen de prueba de cada patron. 
+Los negocios necesitan cosas llamativas para atraer atención de potenciales clientes,cosas que puedan hacer que sean recordados fácilmente y genere sensaciones buenas para que los clientes decidan volver a dicho local, aquí entonces entra lo que conocemos como señales LED, que son básicamente matrices LED que por medio de la programación crean un patrón memorable.  Para solucionar este problema debemos primero encontrar la forma (investigar) como montar la matriz led, puesto que el numero de pines de entradas es menor que 8x8=64 leda, una manera de conseguir esto es el uso de un integrado ( 74HC595) sugerido en el enunciado o usar cualquier otro que cumpla tal fin, esto se debe hacer ya que el código de prueba de los led y el de ejecución de los patrones no se debe hacerse de la manera trivial (manejar cada led por separado) sino como un arreglo bidimensional. El código debe hacerse en c++ debe ser un código eficiente y se debe implementar preferiblemente con matrices con punteros y memoria dinámica, para finalmente implementarlo en la plataforma intercad.
 
 b)
-1. entender los requisitos
+1. Entender los requisitos, 
 2. configurar entorno de desarrollo (GitHub, TINKERCAD)
-3. Crear la matriz de LEDS, cnfigurar la matriz de LEDs en TINKERCAD con 8 filas y 8 columnas y familiarizarce con la forma en la que se pueden controlar los leds en una simulacion 
-4. Diseñar la Estructura del Código:
-Decide cómo estructurar tu programa en C++.
-Identifica las funciones que serán necesarias para cumplir con los requisitos. (mencionadas en la guia)
-Primero se diseñara la funcion de verificaion, que encienda y apague todos los LEDs de la matriz en un patrón definido y permite al usuario controlar el tiempo entre encendido y apagado, así como el número de secuencias
-Luego seguiremos con la funcion mostrar imagen, que permite al usuario visualizar los patrones que puede elegir 
-vamos con la implementacion de la logica para mostrar el patron en la matriz 
-Ahora sigue la funcion "publik" que permita al usuario seleccionar entre varias opciones: a. Verificar funcionamiento de LEDs. b. Mostrar imagen de prueba con control de tiempo. c. Mostrar patrones alternados con control de tiempo.
-5. Procedemos a implementar la comunicaion serial para que el usuario pueda enviar comandos desde un puerto serial 
-6. Por ultimo pasamos a pruebas y depuracion del programa general, siempre sujeto a cambios 
+3. Investigar y estudiar la plataforma tinkercad.
+4. Investigar como es el funcionamiento del integrado sugerido.
+5. Montar la matriz de LEDS y los diferentes componentes como cables, integrado, resistencias y lo que sea necesario. La matriz de leds debe tener  un tamaño de 8x8 (64 en total)
+6. Conseguido el montaje adecuado, se debe probar el funcionamiento de cada led.
+7.  Para tal fin se debe crear un código en c++, una funcion llamada verificación, cuyo fin es hacer que cada led encienda y apague correctamente, cada cierto tiempo.
+8. Diseñar la Estructura general del codigo
+9. Programar cada función de código requerida: Función verificación (programada a la par con el montaje), funcion llamada imagen la cual permite mostrar cada uno de los 4 patrones en la matriz de leds, funcion publik que es la función que permite hacer las diferentes selecciones de las demás funciones  por medio de comandos enviados desde el puerto serial.
+ a. Verificar funcionamiento de LEDs. b. Mostrar imagen de prueba con control de tiempo. c. Mostrar patrones alternados con control de tiempo.
+10. Por ultimo pasamos a pruebas y depuración del programa general, siempre sujeto a cambios
+11. Documentar de manera adecuada cada paso del proyecto y el funcionamiento del mismo.
+8. Realizar un video con enlace a youtube de: a) Análisis realizado y explicación de la arquitectura usada (max 3min), b) Demostración del funcionamiento del sitema (max 3 min), c) Explicación detallada del codigo fuente (max 5 min). El tiempo del video debe estar etre 5 y 11 mintos y debe tener buena calidad.  
 
-c)
+c) Algoritmos implementados
+La creación del software  debe usar arreglos y punteros, que permitan tener un código eficiente.
+. Algoritmo para crear la función verifica para probar cada led por separado (Implementado con arreglos y punteros)
+. Algoritmo para patrón 1
+. Algoritmo para patron 2
+. Algoritmo para patron 3
+. Algoritmo para patron 4
+Cada uno de los 4 patrones implementados tambien con arreglos y punteros, se debe descubrir la secuencia matemática adecuada para cada uno, y se implementara con ciclos for o while o el que sea mas conveniente.
+.Algoritmo para mostrar la imagen de prueba, ingresando el tiempo indicado por el usuario
+. Algoritmo para mostrar de forma alternada cada patrón, con entradas de tiempo de retardo
+. Algoritmo de la funcio imagen, que permite seleccionar y mostrar los 4 patrones 
+. Algoritmo para la función publica, función que hace las veces de sistema operativo de la aplicación.
 
-d) Consideramos que el mayor problema a la hora de desarrollar este programa es el uso de arduino y establecer una relacion directa entre codigo en lenguaje c++ y una matriz de LEDs. 
+Al código se realiza en c++ en QT y luego de que se verifique y este correcto se implementara en arduino. No es necesario hacer todo el código total primero en qt, se puede ir programando e implementando por partes.
+
+d) Consideramos que el mayor problema a la hora de desarrollar este programa es el uso de arruino y establecer una relacion directa entre codigo en lenguaje c++ y una matriz de LEDs. 
 Aunque el mayor reto del parcial sera armar los circuitos y lograr que estos funcionen correctamente para los patrones solicitados 
 
 
-e) Tener siempre presentes las restricciones y recomendaciones dadas en el enunciado del parcial, de forma que no se haga nada indebido y se pueda llegar a una solucion de forma integral, tambien tener en cuenta la eficiencia del codigo para el funcionamiento de la matriz de LEDs
+e) Tener siempre presentes las restricciones y recomendaciones dadas:
+Manejo de led como un conjunto no solución trivial manejando cada led por separado.
+Uso de secuencias (matemáticas adecuadas) para cada patrón.
+Uso de arreglos y apuntadores.
+Código claro y eficiente.
+Usar máximo 7 pines digitales del arduino.
+No usar neo pixel.
+En lo poble usar el integrado 74HC595.
 
-
-
-
-
-
+https://github.com/jsecheverrir/p1 
 
