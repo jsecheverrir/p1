@@ -1,29 +1,101 @@
-Funcion para generar la matriz 8x8 con elementos 0 que indica que los leds estan apagados 
-
 #include <iostream>
+using namespace std;
 
-void generarMatriz8x8(int matriz[8][8]) {
-    // Llenar la matriz con el valor 0
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
-            matriz[i][j] = 0;
+const int TAMANO_MATRIZ = 8;
+
+// Función para imprimir la matriz de LEDs
+void imprimirMatriz(int matriz[TAMANO_MATRIZ][TAMANO_MATRIZ]) {
+    for (int i = 0; i < TAMANO_MATRIZ; i++) {
+        for (int j = 0; j < TAMANO_MATRIZ; j++) {
+            cout << matriz[i][j] << " ";  // Imprimir el valor (0 o 1)
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+// Función para generar y mostrar la matriz
+void generarYMostrarMatriz() {
+    int matriz[TAMANO_MATRIZ][TAMANO_MATRIZ] = {0};  // Inicializar la matriz con todos los LEDs apagados
+
+    cout << "Matriz generada:" << endl;
+    imprimirMatriz(matriz);
+}
+
+// Función para realizar la verificación de los LEDs
+void verificacion(int repeticiones, int duracion_segundos) {
+    int matriz[TAMANO_MATRIZ][TAMANO_MATRIZ] = {0};  // Inicializar la matriz con todos los LEDs apagados
+
+    cout << "Iniciando verificación de LEDs..." << endl;
+
+    for (int r = 0; r < repeticiones; r++) {
+        // Encender todos los LEDs
+        for (int i = 0; i < TAMANO_MATRIZ; i++) {
+            for (int j = 0; j < TAMANO_MATRIZ; j++) {
+                matriz[i][j] = 1;  // 1 representa encendido
+            }
+        }
+
+        // Imprimir la matriz
+        imprimirMatriz(matriz);
+
+        // Esperar la duración especificada en segundos
+        for (int i = 0; i < duracion_segundos; i++) {
+        }
+
+        // Apagar todos los LEDs
+        for (int i = 0; i < TAMANO_MATRIZ; i++) {
+            for (int j = 0; j < TAMANO_MATRIZ; j++) {
+                matriz[i][j] = 0;  // 0 representa apagado
+            }
+        }
+
+        // Imprimir la matriz
+        imprimirMatriz(matriz);
+
+        // Esperar la duración especificada en segundos
+        for (int i = 0; i < duracion_segundos; i++) {
+            // Puedes agregar alguna lógica adicional si lo deseas
         }
     }
+
+    cout << "Verificación completa." << endl;
 }
 
 int main() {
-    int matriz[8][8];
+    int opcion;
+    int repeticiones;
+    int duracion_segundos;
 
-    // Llamar a la función para generar la matriz
-    generarMatriz8x8(matriz);
+    do {
+        cout << "Menú:" << endl;
+        cout << "1. Generar matriz e imprimir matriz" << endl;
+        cout << "2. Realizar verificación de LEDs" << endl;
+        cout << "3. Salir" << endl;
+        cout << "Ingrese su opción: ";
+        cin >> opcion;
 
-    // Imprimir la matriz
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
-            std::cout << matriz[i][j] << " ";
+        switch (opcion) {
+            case 1:
+                generarYMostrarMatriz();
+                break;
+            case 2:
+                cout << "Ingrese el número de repeticiones para la verificación: ";
+                cin >> repeticiones;
+                cout << "Ingrese la duración en segundos para cada encendido y apagado de LEDs: ";
+                cin >> duracion_segundos;
+                verificacion(repeticiones, duracion_segundos);
+                break;
+            case 3:
+                cout << "Saliendo del programa." << endl;
+                break;
+            default:
+                cout << "Opción no válida. Por favor, ingrese una opción válida." << endl;
+                break;
         }
-        std::cout << std::endl;
-    }
+
+    } while (opcion != 3);
 
     return 0;
 }
+
