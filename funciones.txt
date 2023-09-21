@@ -1,0 +1,29 @@
+Funcion para generar la matriz 8x8 con elementos 0 que indica que los leds estan apagados 
+
+#include <iostream>
+
+void generarMatriz8x8(int matriz[8][8]) {
+    // Llenar la matriz con el valor 0
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            matriz[i][j] = 0;
+        }
+    }
+}
+
+int main() {
+    int matriz[8][8];
+
+    // Llamar a la función para generar la matriz
+    generarMatriz8x8(matriz);
+
+    // Imprimir la matriz
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            std::cout << matriz[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    return 0;
+}
