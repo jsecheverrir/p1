@@ -62,16 +62,35 @@ void verificacion(int repeticiones, int duracion_segundos) {
     cout << "Verificación completa." << endl;
 }
 
+// Función para permitir al usuario ingresar un patrón personalizado en la matriz de LEDs por filas
+void imagen(int matriz[TAMANO_MATRIZ][TAMANO_MATRIZ]) {
+    cout << "Ingrese el patrón en la matriz de LEDs (0 para apagado, 1 para encendido) por filas." << endl;
+
+    for (int i = 0; i < TAMANO_MATRIZ; i++) {
+        cout << "Fila " << i + 1 << ": ";
+        for (int j = 0; j < TAMANO_MATRIZ; j++) {
+            if (!(cin >> matriz[i][j])) {
+                matriz[i][j] = 0; // Si no se ingresan más números, asumir 0
+            }
+        }
+    }
+
+    cout << "Patrón ingresado:" << endl;
+    imprimirMatriz(matriz);
+}
+
 int main() {
     int opcion;
     int repeticiones;
     int duracion_segundos;
+    int matriz[TAMANO_MATRIZ][TAMANO_MATRIZ] = {0};  // Inicializar la matriz con todos los LEDs apagados
 
     do {
         cout << "Menú:" << endl;
         cout << "1. Generar matriz e imprimir matriz" << endl;
         cout << "2. Realizar verificación de LEDs" << endl;
-        cout << "3. Salir" << endl;
+        cout << "3. Ingresar un patrón personalizado en la matriz" << endl;
+        cout << "4. Salir" << endl;
         cout << "Ingrese su opción: ";
         cin >> opcion;
 
@@ -87,6 +106,9 @@ int main() {
                 verificacion(repeticiones, duracion_segundos);
                 break;
             case 3:
+                imagen(matriz);
+                break;
+            case 4:
                 cout << "Saliendo del programa." << endl;
                 break;
             default:
@@ -94,7 +116,7 @@ int main() {
                 break;
         }
 
-    } while (opcion != 3);
+    } while (opcion != 4);
 
     return 0;
 }
