@@ -22,8 +22,8 @@ void generarYMostrarMatriz() {
     imprimirMatriz(matriz);
 }
 
-// Función para realizar la verificación de los LEDs
-void verificacion(int repeticiones, int duracion_segundos) {
+// Función para realizar la verificación de los LEDs, parte de publik 
+void verificacion_publik(int repeticiones, int duracion_segundos) {
     int matriz[TAMANO_MATRIZ][TAMANO_MATRIZ] = {0};  // Inicializar la matriz con todos los LEDs apagados
 
     cout << "Iniciando verificación de LEDs..." << endl;
@@ -103,7 +103,7 @@ int main() {
                 cin >> repeticiones;
                 cout << "Ingrese la duración en segundos para cada encendido y apagado de LEDs: ";
                 cin >> duracion_segundos;
-                verificacion(repeticiones, duracion_segundos);
+                verificacion_publik(repeticiones, duracion_segundos);
                 break;
             case 3:
                 imagen(matriz);
