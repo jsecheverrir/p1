@@ -3,9 +3,10 @@ using namespace std;
 void menu();//menu
 void ejecp(int);//mensaje de ejecucion
 void impr_Mat(int **mat, int v);//funcion para imprimir matriz
-
+void fila_Par(bool Matriz[8][8], int Dimension, int i);//funcion para patron 3
+void fila_Impar(bool Matriz[8][8], int Dimension, int i);// funcion para  patron 3
 void patron_1();//ejecuta el patron 1_
-void patron_2();//ejecuta el patron 2
+void patron_2();//ejecuta el patron 2_
 void patron_3();//ejecuta el patron 3
 void patron_4();//ejecuta el patron 4
 int main()
@@ -93,6 +94,31 @@ void impr_Mat(int **mat, int v){
         cout << endl;
 	}
 	
+}
+//---------------------------------------------------------------------
+//Funcion para fila par patron 3
+void fila_Par(bool Matriz[8][8], int Dimension, int i) {
+    int pos;
+        pos = 2;
+        for (int k = 0; k < Dimension; k++) {
+            if (i - i + k == pos) {
+                Matriz[i][k] = false;
+                pos += 3;
+            } else {
+                Matriz[i][k] = true;
+            }
+        }
+    }
+
+//Funcion para fila impar patron 3
+void fila_Impar(bool Matriz[8][8], int Dimension, int i){
+        for (int k = 0; k < Dimension; k++) {
+            if (i - i + k % 3 == 0) {
+                Matriz[i][k] = false;
+            } else {
+                Matriz[i][k] = true;
+            }
+        }
 }
 
 /*****************************************************************
@@ -184,7 +210,24 @@ void patron_2()
 //************************************************************
 void patron_3()
 {
-    cout<<"En constriccion "<<endl;	
+    bool Matriz[8][8];
+    int Dimension = 8;
+
+    //Funcion que alterna las filas de la matriz //
+    for (int i = 0; i < Dimension; i ++){
+        if ((i/2) % 2 == 0 ){
+            fila_Par (Matriz, Dimension, i);
+        }else{
+            fila_Impar(Matriz, Dimension, i);
+        }
+    }
+    // Imprimir matriz
+	for (int i = 0; i < Dimension; i++) {
+        for (int j = 0; j < Dimension; j++) {
+            cout << Matriz[i][j] << " ";
+        }
+        cout << endl;
+    }
 }
 
 //************************************************************
