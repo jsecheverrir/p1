@@ -5,6 +5,8 @@ void ejecp(int);//mensaje de ejecucion
 void impr_Mat(int **mat, int v);//funcion para imprimir matriz
 void fila_Par(bool Matriz[8][8], int Dimension, int i);//funcion para patron 3
 void fila_Impar(bool Matriz[8][8], int Dimension, int i);// funcion para  patron 3
+void arriba(bool Matriz[8][8], int, int, int );//funcion para patron 4
+void abajo(bool Matriz[8][8], int, int, int);//funcion para patron 4
 void patron_1();//ejecuta el patron 1_
 void patron_2();//ejecuta el patron 2_
 void patron_3();//ejecuta el patron 3
@@ -110,6 +112,7 @@ void fila_Par(bool Matriz[8][8], int Dimension, int i) {
         }
     }
 
+//---------------------------------------------------------------------
 //Funcion para fila impar patron 3
 void fila_Impar(bool Matriz[8][8], int Dimension, int i){
         for (int k = 0; k < Dimension; k++) {
@@ -121,6 +124,25 @@ void fila_Impar(bool Matriz[8][8], int Dimension, int i){
         }
 }
 
+//---------------------------------------------------------------------
+//funcion para patron 4
+void arriba(bool Matriz[8][8], int Dimension, int i, int k){
+    if (k - i < 0 or  k - i > Dimension/2 - 1){
+        Matriz[i][k] = false;
+    }else{
+        Matriz[i][k] = true;
+    }
+}
+
+//---------------------------------------------------------------------
+//funcion para patron 4
+void abajo(bool Matriz[8][8], int Dimension, int i, int k){
+    if (k+i < Dimension - 1 or k + i > Dimension + (Dimension/2) - 2){
+        Matriz[i][k] = false;
+    }else{
+        Matriz[i][k] = true;
+    }
+}
 /*****************************************************************
  * Funciones: Cada funcion corresponde a un patron  #            *
 ******************************************************************/
@@ -233,7 +255,28 @@ void patron_3()
 //************************************************************
 void patron_4()
 {
-    cout<<"En constriccion "<<endl;	
+    bool Matriz[8][8];
+    int Dimension = 8;
+
+     // Parte arriba//
+    for (int i = 0; i < Dimension; i++){
+        for (int k = 0; k < Dimension; k++){
+            if (i < Dimension/2){
+                arriba(Matriz, Dimension, i, k);
+            }else{
+                abajo(Matriz, Dimension, i, k);
+            }
+        }
+    }
+
+
+    // Imprimir la matriz
+    for (int i = 0; i < Dimension; i++) {
+        for (int j = 0; j < Dimension; j++) {
+            cout << Matriz[i][j] << " ";
+        }
+        cout << std::endl;
+    }
 }
 
 //************************************************************
