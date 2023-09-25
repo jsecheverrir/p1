@@ -2,8 +2,8 @@
 using namespace std;
 void menu();//menu
 void ejecp(int);//mensaje de ejecucion
+void impr_Mat(int **mat, int v);//funcion para imprimir matriz
 
-//bool isPrime(int);// Funcion que determina si un numero es primo
 void patron_1();//ejecuta el patron 1
 void patron_2();//ejecuta el patron 2
 void patron_3();//ejecuta el patron 3
@@ -83,8 +83,17 @@ void ejecp(int o)
 }
 
 //---------------------------------------------------------------------
-
-
+//Funcion para imprimir matriz cuadrada
+void impr_Mat(int **mat, int v){
+	cout << "Matriz : " << endl;
+    for (int i = 0; i < v; i++) {
+        for (int j = 0; j < v; j++) {
+            cout << mat[i][j] << " ";
+        }
+        cout << endl;
+	}
+	
+}
 
 /*****************************************************************
  * Funciones: Cada funcion corresponde a un patron  #            *
@@ -92,9 +101,45 @@ void ejecp(int o)
 
 void patron_1()
 {
-    cout<<"En constriccion "<<endl;	
-}
+    int n = 8;// Número de filas y columnas en el patrón
+	int **matriz=new int*[n]; //se declara un puntero doble para una matriz
+	// Se crean las filas y las columnas de una matriz
+	for (int k=0; k<n;k++){
+		matriz[k]=new int[n];
+	}
+	// genera 1_4 del patron
+    for (int i = 0; i < n/2; i++) {
+        for (int j = 0; j < n/2; j++) {
+            if (j >= n/2-1- i && j <= n/2 + i) {
+                matriz[i][j]=1;
+            } else {
+                matriz[i][j]=0;
+            }
+        }
+    }
+    
+	//Espejo de la matriz 1_4 eje vertical
+	for(int i=0; i<n/2;i++){//recorre 4 filas
+		for(int j=0;j<n/2;j++){//recorre 4 columnas
+			matriz[i][j+n/2]=matriz[i][n/2-1-j];
+		}
+	}
+	// Espejo de la matriz 1_2 eje horizontal
+	for(int i=0;i<n/2;i++){//recorre n/2=4 filas
+		for(int j=0; j<n; j++){//recorre las n=8 filas
+			matriz[i+n/2][j]=matriz[n/2-1-i][j];
+		}	
+	} 
 
+	impr_Mat(matriz, n);
+	
+	// Liberar la memoria de la matriz
+    for (int i = 0; i < n; i++) {
+        delete[] matriz[i];
+    }
+    delete[] matriz;
+    
+}
 //************************************************************
 void patron_2()
 {
