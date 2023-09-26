@@ -12,8 +12,7 @@ int main() {
         cout << "Ingrese su opcion: ";
                 cin >> opcion;
 
-        // Descartar el caracter de nueva linea del bu fer
-        cin.ignore();
+
 
         switch (opcion) {
         case 1:
